@@ -28,5 +28,12 @@ public class TQueuePage {
 	public void click_implementationList() {
 		link_implilist.click();
 	}
+	
+	@FindBy(xpath = "//a[@class=\"list-group-item list-group-item-light text-info\"]")
+	WebElement link_questions;
+
+	public void Questions() {
+		link_questions.click();
+	}
 
 }

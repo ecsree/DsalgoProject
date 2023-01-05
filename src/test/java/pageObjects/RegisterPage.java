@@ -54,5 +54,17 @@ public class RegisterPage {
 		link_login.click();
 	}
 	
-
+	@FindBy(xpath = "//input[@id=\"id_password2\"]")
+	WebElement confirmPWFillOutmsg;
+	
+	public String pleaseFillOutmsg(String string) throws InterruptedException{
+		//System.out.println("****Message shown: "+ confirmPWFillOutmsg.getAttribute("type"));
+		confirmPWFillOutmsg.click();
+		Thread.sleep(2000);
+		//String msg = edriver.switchTo().alert().getText();
+		String msg = confirmPWFillOutmsg.getText();
+		return msg;
+	}
+	
+ 
 }

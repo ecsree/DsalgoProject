@@ -61,8 +61,9 @@ public class Stacksteps extends Baseclass {
 	    Thread.sleep(1000);
 	}
 	
-	@When("user clicks Practice Questions")
-	public void user_clicks() {
+	
+	@When("user clicks on stack Practice Questions")
+	public void user_clicks_on_stack_practice_questions() {
 	    stack.Questions();
 	}
 
@@ -85,17 +86,7 @@ public class Stacksteps extends Baseclass {
 		System.out.println("***Current url is:  " + edriver.getCurrentUrl());
 	}
 	
-////	@When("user gives input print\\({string})")
-////	public void user_gives_input_print(String string) throws InterruptedException {
-	//((JavascriptExecutor)edriver).executeScript("arguments[0].scrollIntoView(true);", string);
-////		System.out.println("*******$$$$ I am typing text editor*****");
-//////		JavascriptExecutor jse = (JavascriptExecutor) edriver;
-//////		jse.executeScript("arguments[0].click()");
-////		stack.enterPyCode(string);
-////	    System.out.println("*******$$$$ I am typed text editor*****");
-////	    Thread.sleep(1000);
-////	}
-//	
+
 	@When("^user gives input as pycode")
 	public void user_gives_input_as_pycode(DataTable pycode){
 				
@@ -109,7 +100,7 @@ public class Stacksteps extends Baseclass {
 	@When("hit run")
 	public void hit_run() throws InterruptedException {
 	    stack.Run();
-	    Thread.sleep(1000);
+	    //Thread.sleep(1000);
 	}
 
 	@Then("user should be able to see that in the output")
@@ -119,7 +110,7 @@ public class Stacksteps extends Baseclass {
 	    
 	}
 	
-	@Then("user should be able to navigate back to home page")
+	@Then("user should be able to navigate back from stack to home page")
 	public void user_able_to_navigate_back_to_home_page() {
 		JavascriptExecutor jse = (JavascriptExecutor)edriver;
 	     jse.executeScript("window.history.go(-5)");

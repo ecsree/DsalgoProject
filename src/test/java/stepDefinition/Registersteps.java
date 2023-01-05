@@ -1,7 +1,16 @@
 package stepDefinition;
 
+import java.io.ByteArrayInputStream;
+import java.util.List;
+
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
+import io.qameta.allure.Allure;
 import pageObjects.RegisterPage;
 
 public class Registersteps extends Baseclass {
@@ -39,6 +48,25 @@ public class Registersteps extends Baseclass {
 		Thread.sleep(1000);
 		rp.regSubmit();
 	}
+	
+	@When("user type username and password")
+	public void user_type_username_and_password(DataTable dataTable) {
+		List<List<String>> data = dataTable.cells();
+		rp.rUName(data.get(0).get(0));
+		rp.rPWord(data.get(0).get(1));
+	}
+	
+	@Then("user should see {string}")
+	public void user_should_see(String string) throws InterruptedException {
+		
+		//Alert alert = edriver.switchTo().alert();
+		//String text = alert.getText();
+		System.out.println( rp.pleaseFillOutmsg(string));
+		//Assert.assertEquals(string, text);
+		Allure.addAttachment("Fill Out Msg", new ByteArrayInputStream(((TakesScreenshot)edriver).getScreenshotAs(OutputType.BYTES)));
+
+	}
+	
 
 	@Then("user should be able to see message {string}")
 	public void user_should_be_able_to_see_message(String string) {

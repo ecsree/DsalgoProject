@@ -12,8 +12,10 @@ import io.cucumber.junit.CucumberOptions;
 		dryRun=false,
 		monochrome=true,
 		//tags = {"@smoke or @regression"},
-		plugin= {"pretty","html:target/DsAlgo/reports.html",
+		plugin= {"pretty","html:test output/Html/reports.html",
 				"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
+				//"html:test-output", "jason:target/cucumber.jason", test output/Json/ExtentJason.json
+				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
 		}			
 		)
 
