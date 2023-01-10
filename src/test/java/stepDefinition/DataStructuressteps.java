@@ -1,5 +1,6 @@
 package stepDefinition;
 
+import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 
 import io.cucumber.java.en.*;
@@ -12,12 +13,13 @@ public class DataStructuressteps extends Baseclass{
 		ds = new DataStructuresPage(edriver);
 		edriver.manage().window().maximize();
 		ds.getStarted();
-		System.out.println("**** I am in Array page");
+		System.out.println("**** I am in Data Structure page");
 	}
 
 	@Then("user should be in Data Structures page")
 	public void user_should_be_in_data_structures_page() {
 		System.out.println("****The title of the page is: " + edriver.getTitle());
+		Assert.assertEquals("Data Structure",edriver.getTitle());
 	}
 
 	@When("user clicks on Data Structures {string}")
